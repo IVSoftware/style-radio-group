@@ -4,29 +4,35 @@
              xmlns:local="clr-namespace:style_radio_group"
              x:Class="style_radio_group.MainPage">
 
+    <ContentPage.Resources>
+        <Style TargetType="local:OneHotButton" >
+            <Setter Property="SelectedTextColor" Value="Yellow"/>
+        </Style>
+    </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout Padding="30,0" Spacing="25">
-            <Image Source="dotnet_bot.png"
-                   HeightRequest="185"
-                   Aspect="AspectFit"
-                   SemanticProperties.Description="dot net bot in a race car number eight" />
-
-            <Label Text="Select an Fruit:"
-                   FontSize="16"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"/>
+            <Image 
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+            <Label
+                Text="Select a Fruit:"
+                FontSize="16"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"/>
             <local:OneHotButton 
-                TextColor="Red"
                 Text="Apple"
+                SelectedBackgroundColor="Red"     
                 GroupName="OptionsGroup"
                 IsChecked="true"/>
             <local:OneHotButton    
                 Text="Orange"
-                TextColor="Orange"
+                SelectedBackgroundColor="Orange"
                 GroupName="OptionsGroup"/>
             <local:OneHotButton   
                 Text="Grape"
-                TextColor="Green"
+                SelectedBackgroundColor="Green"
                 GroupName="OptionsGroup"/>
         </VerticalStackLayout>
     </ScrollView>
