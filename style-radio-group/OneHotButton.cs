@@ -84,7 +84,6 @@ namespace style_radio_group
             }
         }
 
-
         public static readonly BindableProperty SelectedTextColorProperty =
         BindableProperty.Create(
             propertyName: nameof(OneHotButton.SelectedTextColor),

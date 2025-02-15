@@ -6,7 +6,8 @@
 
     <ContentPage.Resources>
         <Style TargetType="local:OneHotButton" >
-            <Setter Property="SelectedTextColor" Value="Yellow"/>
+            <Setter Property="SelectedBackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="Margin" Value="25,0"/>
         </Style>
     </ContentPage.Resources>
     <ScrollView>
@@ -16,25 +17,30 @@
                 HeightRequest="185"
                 Aspect="AspectFit"
                 SemanticProperties.Description="dot net bot in a race car number eight" />
-            <Label
-                Text="Select a Fruit:"
-                FontSize="16"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"/>
-            <local:OneHotButton 
-                Text="Apple"
-                SelectedBackgroundColor="Red"     
-                GroupName="OptionsGroup"
-                IsChecked="true"/>
-            <local:OneHotButton    
-                Text="Orange"
-                SelectedBackgroundColor="Orange"
-                GroupName="OptionsGroup"/>
-            <local:OneHotButton   
-                Text="Grape"
-                SelectedBackgroundColor="Green"
-                GroupName="OptionsGroup"/>
+            <Border Padding="0,0,0,10" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="10">
+                <Label
+                    Text="Select a Fruit:"
+                    Padding="5"
+                    BackgroundColor="LightGray"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Fill"/>
+                    <local:OneHotButton 
+                        Text="Apple"
+                        SelectedTextColor="Salmon"     
+                        GroupName="OptionsGroup"
+                        IsChecked="true"/>
+                    <local:OneHotButton    
+                        Text="Banana"
+                        SelectedTextColor="Yellow"
+                        GroupName="OptionsGroup"/>
+                    <local:OneHotButton   
+                        Text="Grape"
+                        SelectedTextColor="LightGreen"
+                        GroupName="OptionsGroup"/>
+                </VerticalStackLayout>
+            </Border>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
