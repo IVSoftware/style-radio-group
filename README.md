@@ -1,6 +1,22 @@
-Your question begins with _"I am trying to customize the appearance of a RadioButton in .NET MAUI"_ but after careful reading it becomes clear that you're trying to customize it so that it **_doesn't look like a radio button anymore_**. So now we might have an [XY Problem](https://meta.stackexchange.com/a/66378/1440945) because (if I'm following your post) you want something that looks like a button (_"has no checkmark or other icon"_) where you can style the colors based on selection, and that can be grouped similar to the way that `RadioButton` behaves ("one hot").
+﻿Stephen has answered ▲ the question in exactly the way it was asked. This is to offer the perspective that writing this as a custom control offers some advantages in terms of reusability, especially in other projects. The OP's requirement is for a control that _"has no checkmark or other icon"_. That sounds like a `Button` so what if we make `OneHotButton` and give it a property that binds in XAML markup, that is a `GroupName` whose members behave one-hot like a `RadioButton` group would. While we're at it, make bindable properties for `SelectedTextColor`, `SelectedBackgroundColor`, `UnselectedTextColor`, and `UnselectedBackgroundColor`.
+    }
+}
 
-What I'm going to suggest is inheriting `Button` to make `OneHotButton` and the first thing we'll do is make it behave the way `RadioButton` does. The snippet below shows how to make `BindableProperty` for `GroupName` that can be set in the XAML in order to make this work.
+```
+<local:OneHotButton Text="Apple" SelectedTextColor="Salmon"  GroupName="OptionsGroup"  IsChecked="true"/>
+```
+
+and
+
+```
+<Style TargetType="local:OneHotButton" >
+    <Setter Property="SelectedBackgroundColor" Value="CornflowerBlue"/>
+</Style>
+```
+
+___
+
+**Example One Hot Implementation**
 
 ~~~csharp
 [DebuggerDisplay("{Text}")]
@@ -69,7 +85,9 @@ public partial class OneHotButton : Button
 
 ___
 
-Now all you need to do is make bindable properties for the colors, for example for `SelectedTextColor`, `UnselectedTextColor` and so on.
+**Example Bindable Color**
+
+This snippet shows how to expose a property to be used in XAML markup.
 
 ```csharp
 public Color SelectedTextColor
