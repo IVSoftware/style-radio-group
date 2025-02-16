@@ -1,6 +1,6 @@
-﻿Stephen has answered ▲ the question in exactly the way it was asked. This is to offer the perspective that writing this as a custom control offers some advantages in terms of reusability, especially in other projects. The OP's requirement is for a control that _"has no checkmark or other icon"_. That sounds like a `Button` so what if we make `OneHotButton` and give it a property that binds in XAML markup, that is a `GroupName` whose members behave one-hot like a `RadioButton` group would. While we're at it, make bindable properties for `SelectedTextColor`, `SelectedBackgroundColor`, `UnselectedTextColor`, and `UnselectedBackgroundColor`.
-    }
-}
+﻿Stephen’s answer ▲ does a great job using a `Style`, as the OP requested. To build on that, this answer drills a little deeper into an alternative approach: a custom control for better reusability, maintainability, and extensibility across projects. Since the OP wants a control that "_has no checkmark or other icon_" (essentially a `Button`), what if we create `OneHotButton` and give it a property that binds in XAML markup—e.g., `GroupName`, whose members behave one-hot, just like a `RadioButton` group? While we're at it, we can add bindable properties for `SelectedTextColor`, `SelectedBackgroundColor`, `UnselectedTextColor`, and `UnselectedBackgroundColor`, making it easier to customize the appearance without modifying multiple styles.
+
+
 
 ```
 <local:OneHotButton Text="Apple" SelectedTextColor="Salmon"  GroupName="OptionsGroup"  IsChecked="true"/>
@@ -151,13 +151,13 @@ ___
                 SemanticProperties.Description="dot net bot in a race car number eight" />
             <Border Padding="0,0,0,10" StrokeShape="RoundRectangle 10">
                 <VerticalStackLayout Spacing="10">
-                <Label
-                    Text="Select a Fruit:"
-                    Padding="5"
-                    BackgroundColor="LightGray"
-                    FontSize="16"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Fill"/>
+                    <Label
+                        Text="Choose One Fruit"
+                        Padding="5"
+                        BackgroundColor="LightGray"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Fill"/>
                     <local:OneHotButton 
                         Text="Apple"
                         SelectedTextColor="Salmon"     
@@ -177,8 +177,7 @@ ___
     </ScrollView>
 </ContentPage>
 ```
+[![net9.0 on android][1]][1]
 
-[![screenshots][1]][1]
 
-
-  [1]: https://i.sstatic.net/TU5S4OJj.png
+  [1]: https://i.sstatic.net/jtkXzVqF.png

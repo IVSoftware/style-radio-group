@@ -19,13 +19,13 @@
                 SemanticProperties.Description="dot net bot in a race car number eight" />
             <Border Padding="0,0,0,10" StrokeShape="RoundRectangle 10">
                 <VerticalStackLayout Spacing="10">
-                <Label
-                    Text="Select a Fruit:"
-                    Padding="5"
-                    BackgroundColor="LightGray"
-                    FontSize="16"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Fill"/>
+                    <Label
+                        Text="Choose One Fruit"
+                        Padding="5"
+                        BackgroundColor="LightGray"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Fill"/>
                     <local:OneHotButton 
                         Text="Apple"
                         SelectedTextColor="Salmon"     
